@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mcardle/password-generator.svg?branch=master)](https://travis-ci.org/mcardle/password-generator)
+
 # Password Generator
 
 This is just a simple PHP password generator. To generate a strong password simple, just type:
