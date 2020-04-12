@@ -11,7 +11,7 @@ final class SpecialCharGeneratorTest extends TestCase{
 	public function it_returns_a_password_with_4_special_chars_when_special_char_generator_is_called_with_length_4(): void{
 		$specialCharGenerator = new \McArdle\Generators\SpecialCharsGenerator(4);
 		$this->assertSame(strlen($specialCharGenerator->generate()), 4);
-		$this->assertRegExp('/[<>{}(),.$@!\/?]{4}/', $specialCharGenerator->generate());
+		$this->assertMatchesRegularExpression('/[<>{}(),.$@!\/?]{4}/', $specialCharGenerator->generate());
 	}
 
 	/**
@@ -23,7 +23,7 @@ final class SpecialCharGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$specialCharGenerator]);
 		$password = $passwordGenerator->generate();
 		$this->assertSame(strlen($password), 4);
-		$this->assertRegExp('/[<>{}(),.$@!\/?]{4}/', $password);
+		$this->assertMatchesRegularExpression('/[<>{}(),.$@!\/?]{4}/', $password);
 	}
 
 	/**
@@ -35,6 +35,6 @@ final class SpecialCharGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$specialCharGenerator]);
 		$password = $passwordGenerator->generate(4);
 		$this->assertSame(strlen($password), 4);
-		$this->assertRegExp('/[<>{}(),.$@!\/?]{4}/', $password);
+		$this->assertMatchesRegularExpression('/[<>{}(),.$@!\/?]{4}/', $password);
 	}
 }
