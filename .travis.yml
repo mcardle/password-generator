@@ -1,16 +1,12 @@
 dist: xenial
 language: php
 
-_shared_job: &shared_job
-  install: composer require phpunit/phpunit "^9.3"
-  script: vendor/bin/phpunit
 jobs:
   fast_finish: true
   include:
-    - php: 7.3
-      <<: *shared_job
-    - php: 7.4
-      <<: *shared_job
+    - php: 7.2
+    install: composer install
+    script: phpunit
 
 cache:
  directories:
