@@ -11,7 +11,7 @@ final class LowerCaseGeneratorTest extends TestCase{
 	public function it_returns_a_password_with_4_lower_case_chars_when_lower_case_generator_is_called_with_length_4(): void{
 		$lowerCaseGenerator = new \McArdle\Generators\LowerCaseGenerator(4);
 		$this->assertSame(strlen($lowerCaseGenerator->generate()), 4);
-		$this->assertMatchesRegularExpression('/[a-zæøå]{4}/', $lowerCaseGenerator->generate());
+		$this->assertRegExp('/[a-zæøå]{4}/', $lowerCaseGenerator->generate());
 	}
 
 	/**
@@ -23,7 +23,7 @@ final class LowerCaseGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$lowerCaseGenerator]);
 		$password = $passwordGenerator->generate();
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[a-zæøå]{4}/', $password);
+		$this->assertRegExp('/[a-zæøå]{4}/', $password);
 	}
 
 	/**
@@ -35,6 +35,6 @@ final class LowerCaseGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$lowerCaseGenerator]);
 		$password = $passwordGenerator->generate(4);
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[a-zæøå]{4}/', $password);
+		$this->assertRegExp('/[a-zæøå]{4}/', $password);
 	}
 }

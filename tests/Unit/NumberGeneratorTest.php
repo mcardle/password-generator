@@ -11,7 +11,7 @@ final class NumberGeneratorTest extends TestCase{
 	public function it_returns_a_password_with_4_numbers_when_number_generator_is_called_with_length_4(): void{
 		$numberGenerator = new \McArdle\Generators\NumberGenerator(4);
 		$this->assertSame(strlen($numberGenerator->generate()), 4);
-		$this->assertMatchesRegularExpression('/[0-9]{4}/', $numberGenerator->generate());
+		$this->assertRegExp('/[0-9]{4}/', $numberGenerator->generate());
 	}
 
 	/**
@@ -23,7 +23,7 @@ final class NumberGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$numberGenerator]);
 		$password = $passwordGenerator->generate();
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[0-9]{4}/', $password);
+		$this->assertRegExp('/[0-9]{4}/', $password);
 	}
 
 	/**
@@ -35,6 +35,6 @@ final class NumberGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$numberGenerator]);
 		$password = $passwordGenerator->generate(4);
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[0-9]{4}/', $password);
+		$this->assertRegExp('/[0-9]{4}/', $password);
 	}
 }
