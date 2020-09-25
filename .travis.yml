@@ -15,7 +15,7 @@ matrix:
     - php: nightly
 
 install:
-  - composer require "phpunit/phpunit:${VERS}
+  - composer require "phpunit/phpunit:${VERS}"
 
 script:
   - vendor/bin/phpunit
