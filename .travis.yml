@@ -14,11 +14,10 @@ matrix:
   allow_failures:
     - php: nightly
 
-before_install:
-  - composer require "phpunit/phpunit:$VERS
-
 install:
   - composer install
+  - if [[ $VERS == "8.5.8" ]]; then composer require "phpunit/phpunit:8.5"; fi
+  - if [[ $VERS == "9.3.11" ]]; then composer require "phpunit/phpunit:9.3"; fi
 
 script:
   - vendor/bin/phpunit
