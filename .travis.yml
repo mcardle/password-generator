@@ -1,5 +1,5 @@
+dist: xenial
 language: php
-
 php:
   - 7.0
   - 7.1
@@ -7,17 +7,26 @@ php:
   - 7.3
   - 7.4
 
-matrix:
+_shared_job: &shared_job
+  script: vendor/bin/phpunit
+jobs:
   fast_finish: true
-  allow_failures:
-    - php: nightly
-
-before_install:
-  - composer self-update
-  - composer install --no-interaction --dev
-
-script:
-  - phpunit
+  include:
+    - php: 7.0
+      install: composer require phpunit/phpunit:8.4
+      <<: *shared_job
+    - php: 7.1
+      install: composer require phpunit/phpunit:8.4
+      <<: *shared_job
+    - php: 7.2
+      install: composer require phpunit/phpunit:8.4
+      <<: *shared_job
+    - php: 7.3
+      install: composer require phpunit/phpunit:9.3
+      <<: *shared_job
+    - php: 7.4
+      install: composer require phpunit/phpunit:9.3
+      <<: *shared_job
 
 cache:
  directories:
