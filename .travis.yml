@@ -5,8 +5,8 @@ jobs:
   fast_finish: true
   include:
     - php: 7.2
-    install: composer install
-    script: phpunit
+      install: composer install
+      script: phpunit
 
 cache:
  directories:
