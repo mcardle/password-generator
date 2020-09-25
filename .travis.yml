@@ -1,18 +1,23 @@
 language: php
 
 php:
+  - 7.2
+    env: VERS="8.5.8"
   - 7.3
+    env: VERS="9.3.11"
   - 7.4
+    env: VERS="9.3.11"
   - nightly
+    env: VERS="9.3.11"
 
 matrix:
   fast_finish: true
   allow_failures:
     - php: nightly
 
-before_install:
-  - composer self-update
-  - composer require phpunit/phpunit
+install:
+  - composer install
+  - composer require "phpunit/phpunit:$VERS
 
 script:
   - vendor/bin/phpunit
