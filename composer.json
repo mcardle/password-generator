@@ -1,4 +1,20 @@
 {
+	"name": "mcardle/password-generator",
+    "type": "library",
+    "description": "An easy-to-use password generator for your project",
+    "keywords": ["password","generator","security"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ulrik McArdle",
+            "email": "mcardle@keystroke.dk",
+            "homepage": "https://keystroke.dk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
     "autoload": {
         "psr-4": {
             "McArdle\\": "src/"
