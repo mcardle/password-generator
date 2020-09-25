@@ -15,9 +15,11 @@ matrix:
   allow_failures:
     - php: nightly
 
+before_install:
+  - composer require "phpunit/phpunit:$VERS
+
 install:
   - composer install
-  - composer require "phpunit/phpunit:$VERS
 
 script:
   - vendor/bin/phpunit
