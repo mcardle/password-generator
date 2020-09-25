@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/mcardle/password-generator.svg?branch=7.3)](https://travis-ci.org/mcardle/password-generator)
 
-##### Tests does not support PHP 7.2 but it still runs. Unit tests passing both PHP 7.3 and PHP 7.4.
-
 # Password Generator
 
 This is just a simple PHP password generator. To generate a strong password simple, just type:
