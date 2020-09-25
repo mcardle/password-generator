@@ -1,21 +1,28 @@
 language: php
 
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+  - 7.4
+
 matrix:
-  include:
-    - php: 7.2
-      env: VERS="8.4"
-    - php: 7.3
-      env: VERS="9.3"
-    - php: 7.4
-      env: VERS="9.3"
-    - php: nightly
-      env: VERS="9.3"
   fast_finish: true
   allow_failures:
     - php: nightly
 
-install:
-  - composer require "phpunit/phpunit:${VERS}"
+before_install:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
 
 script:
-  - vendor/bin/phpunit
+  - phpunit
+
+notifications:
+   on_success: never
+   on_failure: always
+
+cache:
+ directories:
+   - $HOME/.composer/cache/files
