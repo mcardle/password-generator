@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mcardle/password-generator.svg?branch=master)](https://travis-ci.org/mcardle/password-generator)
+[![Build Status](https://travis-ci.org/mcardle/password-generator.svg?branch=7.3)](https://travis-ci.org/mcardle/password-generator)
 
 ##### Tests does not support PHP 7.2 but it still runs. Unit tests passing both PHP 7.3 and PHP 7.4.
 
