@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mcardle/password-generator.svg?branch=master)](https://travis-ci.org/mcardle/password-generator)
+[![Build Status](https://travis-ci.org/mcardle/password-generator.svg?branch=7.4)](https://travis-ci.org/mcardle/password-generator)
 
 # Password Generator
 
