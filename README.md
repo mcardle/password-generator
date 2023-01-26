@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mcardle/password-generator.svg?branch=7.4)](https://travis-ci.org/mcardle/password-generator)
+![CI Workflow](https://github.com/github/docs/actions/workflows/ci.yml/badge.svg)
 
 # Password Generator
 
