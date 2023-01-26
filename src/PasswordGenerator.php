@@ -2,41 +2,39 @@
 
 namespace McArdle;
 
-use ReflectionClass;
-use ReflectionException;
-use InvalidArgumentException;
-use McArdle\Generators\{NumberGenerator, LowerCaseGenerator, UpperCaseGenerator, SpecialCharsGenerator};
+use McArdle\Traits\fluid;
+use McArdle\Generators\{
+	GeneratorInterface,
+	NumberGenerator,
+	LowerCaseGenerator,
+	UpperCaseGenerator,
+	SpecialCharsGenerator
+};
 
 /**
  * Class PasswordGenerator
  * @package mcardle
  */
 class PasswordGenerator{
+	use fluid;
 
-	/**
-	 * @var array
-	 */
-	protected $generators = [];
+	protected array $generators = [];
 
-	/**
-	 * PasswordGenerator constructor.
-	 * @param array $generatorInstances
-	 * @throws ReflectionException
-	 */
-	public function __construct(array $generatorInstances){
+	public function __construct(array $generatorInstances = []){
+		$this->setGenerators($generatorInstances);
+	}
+
+	public function setGenerators($generatorInstances = []): void{
 		foreach($generatorInstances as $instance){
-			$reflect = new ReflectionClass($instance);
-			if($reflect->implementsInterface(\McArdle\Generators\GeneratorInterface::class) === false){
-				throw new InvalidArgumentException('Generator "' . get_class($instance) . '" not supported');
-			}
-			$this->generators[] = $instance;
+			$this->setGenerator($instance);
 		}
 	}
 
-	/**
-	 * @param null $length
-	 * @return string
-	 */
+	public function setGenerator(GeneratorInterface $generator): self{
+		$this->generators[] = $generator;
+		return $this;
+	}
+
 	public function generate($length = null): string{
 		$password = '';
 		foreach($this->generators as $instance){
@@ -51,11 +49,6 @@ class PasswordGenerator{
 		return $password;
 	}
 
-	/**
-	 * @param int $length
-	 * @return string
-	 * @throws ReflectionException
-	 */
 	public static function all($length = 8): string{
 
 		if(empty($length) || !is_int($length) || $length < 1){
@@ -76,7 +69,6 @@ class PasswordGenerator{
 			$instances[] = new $generator($each);
 		}
 
-		$password = new static($instances);
-		return $password->generate($length);
+		return (new static($instances))->generate($length);
 	}
 }

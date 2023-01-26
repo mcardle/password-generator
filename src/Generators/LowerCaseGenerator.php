@@ -14,6 +14,6 @@ class LowerCaseGenerator extends Generator implements GeneratorInterface{
 	 */
 	public function __construct($length){
 		$this->length = $length;
-		$this->chars = 'abcdefghijklmnopqrstuvwxyzæøå';
+		$this->chars = 'abcdefghijklmnopqrstuvwxyz';
 	}
 }

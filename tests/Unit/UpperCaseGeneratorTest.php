@@ -11,7 +11,7 @@ final class UpperCaseGeneratorTest extends TestCase{
 	public function it_returns_a_password_with_4_upper_case_chars_when_uppercase_generator_is_called_with_length_4(): void{
 		$upperCaseGenerator = new \McArdle\Generators\UpperCaseGenerator(4);
 		$this->assertSame(strlen($upperCaseGenerator->generate()), 4);
-		$this->assertMatchesRegularExpression('/[A-ZÆØÅ]{4}/', $upperCaseGenerator->generate());
+		$this->assertMatchesRegularExpression('/[A-Z]{4}/', $upperCaseGenerator->generate());
 	}
 
 	/**
@@ -23,7 +23,7 @@ final class UpperCaseGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$upperCaseGenerator]);
 		$password = $passwordGenerator->generate();
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[A-ZÆØÅ]{4}/', $password);
+		$this->assertMatchesRegularExpression('/[A-Z]{4}/', $password);
 	}
 
 	/**
@@ -35,6 +35,6 @@ final class UpperCaseGeneratorTest extends TestCase{
 		$passwordGenerator = new \McArdle\PasswordGenerator([$upperCaseGenerator]);
 		$password = $passwordGenerator->generate(4);
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[A-ZÆØÅ]{4}/', $password);
+		$this->assertMatchesRegularExpression('/[A-Z]{4}/', $password);
 	}
 }

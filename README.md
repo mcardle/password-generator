@@ -48,3 +48,14 @@ $passwordGenerator = new \McArdle\PasswordGenerator([
 echo $passwordGenerator->generate(8);
 ```
 This will return a pass of eight characters but each generator provided a string of 35 characters long.
+
+Since version 8.2, it is also possible to create a password fluently, like this:
+
+```
+$password = \McArdle\PasswordGenerator::init()->
+    ->special(4)   // The amount of special characters
+    ->number(2)    // The amount of numbers
+    ->uppercase(6) // The amount of uppercase letters
+    ->lowercase(3) // The amount of lowercase letters
+    ->generate(8); // The length of the password
+```

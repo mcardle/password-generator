@@ -14,6 +14,6 @@ class UpperCaseGenerator extends Generator implements GeneratorInterface{
 	 */
 	public function __construct($length){
 		$this->length = $length;
-		$this->chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ';
+		$this->chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	}
 }
