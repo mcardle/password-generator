@@ -1,4 +1,4 @@
-![CI Workflow](https://github.com/github/docs/actions/workflows/ci.yml/badge.svg)
+![CI Workflow](https://github.com/mcardle/password-generator/actions/workflows/ci/badge.svg)
 
 # Password Generator
 
