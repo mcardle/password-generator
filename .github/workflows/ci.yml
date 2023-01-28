@@ -9,11 +9,7 @@ jobs:
       matrix:
         operating-system: ['ubuntu-latest']
         php-versions: ['8.0', '8.1', '8.2']
-        phpunit-versions: ['latest']
-        include:
-          - operating-system: 'ubuntu-latest'
-            php-versions: '8.0'
-            phpunit-versions: '9.5.23'
+        phpunit-versions: ['9.5.28']
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -22,3 +18,11 @@ jobs:
           extensions: mbstring, intl
           coverage: xdebug
           tools: php-cs-fixer, phpunit:${{ matrix.phpunit-versions }}
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@master
+#        env:
+#          TEST_NAME: Scarlett
+        with:
+          bootstrap: vendor/autoload.php
+          configuration: phpunit.xml
+          args: --coverage-text
