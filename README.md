@@ -6,7 +6,7 @@
 This is just a simple PHP password generator. To generate a strong password simple, just type:
 
 ```
-echo PasswordGenerator::all(8);
+echo \McArdle\PasswordGenerator::all(8);
 ```
 
 The number eight is the length of the password. If you want to specify how many of each chars must be in the string, you can instantiate each generator by itself like this:
@@ -17,12 +17,7 @@ $lower = new \McArdle\Generators\LowerCaseGenerator(7);
 $upper = new \McArdle\Generators\UpperCaseGenerator(9);
 $special = new \McArdle\Generators\SpecialCharGenerator(2);
 
-$generators = [
-    $numbers,
-    $lower,
-    $upper,
-    $special,
-];
+$generators = [$numbers, $lower, $upper, $special];
 
 $passwordGenerator = new \McArdle\PasswordGenerator($generators);
 echo $passwordGenerator->generate();
