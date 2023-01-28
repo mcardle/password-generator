@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \McArdle\PasswordGenerator
+ * @covers \McArdle\Generators\Generator
  */
 final class PasswordGeneratorTest extends TestCase{
 

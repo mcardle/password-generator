@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \McArdle\Generators\SpecialCharsGenerator
+ * @covers \McArdle\Generators\Generator
  */
 final class SpecialCharsGeneratorTest extends TestCase{
 

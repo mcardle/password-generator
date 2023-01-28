@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \McArdle\Generators\NumberGenerator
+ * @covers \McArdle\Generators\Generator
  */
 final class NumberGeneratorTest extends TestCase{
 

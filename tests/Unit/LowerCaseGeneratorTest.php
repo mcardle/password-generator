@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \McArdle\Generators\LowerCaseGenerator
+ * @covers \McArdle\Generators\Generator
  */
 final class LowerCaseGeneratorTest extends TestCase{
 
