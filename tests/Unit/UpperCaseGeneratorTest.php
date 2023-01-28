@@ -2,11 +2,13 @@
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \McArdle\Generators\UpperCaseGenerator
+ */
 final class UpperCaseGeneratorTest extends TestCase{
 
 	/**
 	 * @test
-	 * @throws Exception
 	 */
 	public function it_returns_a_password_with_4_upper_case_chars_when_uppercase_generator_is_called_with_length_4(): void{
 		$upperCaseGenerator = new \McArdle\Generators\UpperCaseGenerator(4);
@@ -16,7 +18,6 @@ final class UpperCaseGeneratorTest extends TestCase{
 
 	/**
 	 * @test
-	 * @throws ReflectionException
 	 */
 	public function it_returns_a_password_with_4_upper_case_chars_when_password_generator_is_called_with_upper_case_generator_and_length_of_4(): void{
 		$upperCaseGenerator = new \McArdle\Generators\UpperCaseGenerator(4);
@@ -28,7 +29,6 @@ final class UpperCaseGeneratorTest extends TestCase{
 
 	/**
 	 * @test
-	 * @throws ReflectionException
 	 */
 	public function it_returns_a_password_with_4_upper_case_chars_when_password_generator_is_called_with_length_of_4_with_upper_case_generator_with_length_of_4(): void{
 		$upperCaseGenerator = new \McArdle\Generators\UpperCaseGenerator(4);

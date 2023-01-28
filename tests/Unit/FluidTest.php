@@ -2,6 +2,9 @@
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \McArdle\Traits\fluent.php
+ */
 final class FluidTest extends TestCase{
 
 	/**

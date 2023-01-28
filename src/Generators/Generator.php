@@ -2,26 +2,12 @@
 
 namespace McArdle\Generators;
 
-/**
- * Class NumberGenerator
- * @package McArdle\Generators
- */
 abstract class Generator{
 
-	/**
-	 * @var int
-	 */
-	protected $length;
+	protected int $length;
 
-	/**
-	 * @var string
-	 */
-	protected $chars;
+	protected string $chars;
 
-	/**
-	 * @return string
-	 * @throws \Exception
-	 */
 	public function generate(): string{
 		$string = '';
 		for($i=0; $i<$this->length; $i++){

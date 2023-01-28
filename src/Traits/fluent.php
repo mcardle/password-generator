@@ -7,10 +7,13 @@ use McArdle\Generators\NumberGenerator;
 use McArdle\Generators\SpecialCharsGenerator;
 use McArdle\Generators\UpperCaseGenerator;
 
-trait fluid{
+/**
+ * @phpstan-consistent-constructor
+ */
+trait fluent{
 
-	public static function init(): self{
-		return new static();
+	public static function init(array $generatorInstances = []): self{
+		return new static($generatorInstances);
 	}
 
 	public function number(int $amount = 2): self{

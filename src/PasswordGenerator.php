@@ -2,7 +2,7 @@
 
 namespace McArdle;
 
-use McArdle\Traits\fluid;
+use McArdle\Traits\fluent;
 use McArdle\Generators\{
 	GeneratorInterface,
 	NumberGenerator,
@@ -12,11 +12,10 @@ use McArdle\Generators\{
 };
 
 /**
- * Class PasswordGenerator
- * @package mcardle
+ * @phpstan-consistent-constructor
  */
 class PasswordGenerator{
-	use fluid;
+	use fluent;
 
 	protected array $generators = [];
 
