@@ -11,7 +11,7 @@ jobs:
         with:
           php-version: '8.2'
           coverage: pcov
-          extensions: none, curl, dom, json, libxml, mbstring, phar, soap, tokenizer, xml, xmlwriter
+          extensions: none, curl, dom, json, libxml, mbstring, phar, soap, tokenizer, xml, xmlwriter, simplexml
           ini-values: assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
           tools: php-cs-fixer, phpstan, psalm, phpunit:${{ matrix.phpunit-versions }}
 
