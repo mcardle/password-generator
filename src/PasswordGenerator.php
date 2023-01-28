@@ -13,6 +13,7 @@ use McArdle\Generators\{
 
 /**
  * @phpstan-consistent-constructor
+ * @psalm-consistent-constructor
  */
 class PasswordGenerator{
 	use fluent;
@@ -23,7 +24,7 @@ class PasswordGenerator{
 		$this->setGenerators($generatorInstances);
 	}
 
-	public function setGenerators($generatorInstances = []): void{
+	public function setGenerators(array $generatorInstances = []): void{
 		foreach($generatorInstances as $instance){
 			$this->setGenerator($instance);
 		}
@@ -34,7 +35,7 @@ class PasswordGenerator{
 		return $this;
 	}
 
-	public function generate($length = null): string{
+	public function generate(int $length = null): string{
 		$password = '';
 		foreach($this->generators as $instance){
 			$password .= $instance->generate();
@@ -48,7 +49,7 @@ class PasswordGenerator{
 		return $password;
 	}
 
-	public static function all($length = 8): string{
+	public static function all(int $length = 8): string{
 
 		if(empty($length) || !is_int($length) || $length < 1){
 			$length = 8;
