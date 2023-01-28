@@ -1,4 +1,5 @@
 ![CI Workflow](https://github.com/mcardle/password-generator/actions/workflows/ci.yml/badge.svg)
+[![Coverage Status](http://beporter.github.io/phpunit-coverage-tutorial/img/coverage.png)](http://beporter.github.io/phpunit-coverage-tutorial/coverage/)
 
 # Password Generator
 

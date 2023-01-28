@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \McArdle\Traits\fluent.php
+ * @covers \McArdle\Traits\fluent
  */
 final class FluidTest extends TestCase{
 
@@ -13,7 +13,7 @@ final class FluidTest extends TestCase{
 	public function it_returns_a_string_with_4_lower_case_chars(): void{
 		$password = \McArdle\PasswordGenerator::init()->lowercase(4)->generate();
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[a-zæøå]{4}/', $password);
+		$this->assertMatchesRegularExpression('/[a-z]{4}/', $password);
 	}
 
 	/**
@@ -22,7 +22,7 @@ final class FluidTest extends TestCase{
 	public function it_returns_a_string_with_4_upper_case_chars(): void{
 		$password = \McArdle\PasswordGenerator::init()->uppercase(4)->generate();
 		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[A-ZÆØÅ]{4}/', $password);
+		$this->assertMatchesRegularExpression('/[A-Z]{4}/', $password);
 	}
 
 	/**
@@ -36,6 +36,7 @@ final class FluidTest extends TestCase{
 
 	/**
 	 * @test
+	 * @covers \McArdle\Traits\fluent::special
 	 */
 	public function it_returns_a_string_with_4_special_chars(): void{
 		$password = \McArdle\PasswordGenerator::init()->special(4)->generate();

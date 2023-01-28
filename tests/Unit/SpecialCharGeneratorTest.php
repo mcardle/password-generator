@@ -3,10 +3,9 @@
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \McArdle\Generators\SpecialCharGenerator
+ * @covers \McArdle\Generators\SpecialCharsGenerator
  */
-
-final class SpecialCharGeneratorTest extends TestCase{
+final class SpecialCharsGeneratorTest extends TestCase{
 
 	/**
 	 * @test
