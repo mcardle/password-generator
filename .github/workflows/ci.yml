@@ -10,8 +10,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: mbstring
-          coverage: xdebug
+          coverage: pcov
+          extensions: none, curl, dom, json, libxml, mbstring, phar, soap, tokenizer, xml, xmlwriter
+          ini-values: assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
           tools: php-cs-fixer, phpstan, psalm, phpunit:${{ matrix.phpunit-versions }}
 
       - name: Checkout repository
@@ -21,7 +22,12 @@ jobs:
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
       - name: Test with phpunit
-        run: vendor/bin/phpunit --coverage-text
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Send code coverage report to codecov.io
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Run PHPStan
         run: phpstan analyse src
