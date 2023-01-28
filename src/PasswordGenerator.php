@@ -35,23 +35,23 @@ class PasswordGenerator{
 		return $this;
 	}
 
-	public function generate(int $length = null): string{
+	public function generate(?int $length = null): string{
 		$password = '';
 		foreach($this->generators as $instance){
 			$password .= $instance->generate();
 			$password = str_shuffle($password);
 		}
 
-		if(!empty($length) && is_int($length)){
+		if($length !== null){
 			return substr($password, 0, $length);
 		}
 
 		return $password;
 	}
 
-	public static function all(int $length = 8): string{
+	public static function all(?int $length = null): string{
 
-		if(empty($length) || !is_int($length) || $length < 1){
+		if($length === null){
 			$length = 8;
 		}
 
