@@ -1,5 +1,5 @@
 [![CI Workflow](https://github.com/mcardle/password-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/mcardle/password-generator/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/mcardle/password-genrator/branch/8.2/graph/badge.svg)](https://codecov.io/gh/mcardle/password-generator)
+[![codecov](https://codecov.io/gh/mcardle/password-generator/branch/8.2/graph/badge.svg?token=RNO0PO27GC)](https://codecov.io/gh/mcardle/password-generator)
 
 # Password Generator
 
