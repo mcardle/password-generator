@@ -32,7 +32,7 @@ You can of course pass just one or whatever the number of generators you like. Y
 Since version 8.2, it is also possible to create a password fluently, like this:
 
 ```
-$password = \McArdle\PasswordGenerator::init()->
+$password = \McArdle\PasswordGenerator::init()
     ->special(4)   // The amount of special characters
     ->number(2)    // The amount of numbers
     ->uppercase(6) // The amount of uppercase letters
