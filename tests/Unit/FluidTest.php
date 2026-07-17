@@ -2,11 +2,11 @@
 
 namespace McArdle\Tests\Unit;
 
-use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(\McArdle\Traits\Fluent::class)]
+#[CoversTrait(\McArdle\Traits\Fluent::class)]
 final class FluidTest extends TestCase{
 
     #[Test]
