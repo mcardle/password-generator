@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace McArdle;
 
-use McArdle\Traits\fluent;
 use McArdle\Generators\{
 	GeneratorInterface,
 	NumberGenerator,
 	LowerCaseGenerator,
 	UpperCaseGenerator,
-	SpecialCharsGenerator
+	SpecialCharGenerator
 };
 
 /**
@@ -18,12 +19,15 @@ use McArdle\Generators\{
 class PasswordGenerator{
 	use \McArdle\Traits\Fluent;
 
+	/** @var array<int, GeneratorInterface> */
 	protected array $generators = [];
 
+	/** @param array<int, GeneratorInterface> $generatorInstances */
 	public function __construct(array $generatorInstances = []){
 		$this->setGenerators($generatorInstances);
 	}
 
+	/** @param array<int, GeneratorInterface> $generatorInstances */
 	public function setGenerators(array $generatorInstances = []): void{
 		foreach($generatorInstances as $instance){
 			$this->setGenerator($instance);
@@ -59,10 +63,10 @@ class PasswordGenerator{
 			NumberGenerator::class,
 			UpperCaseGenerator::class,
 			LowerCaseGenerator::class,
-			SpecialCharsGenerator::class,
+			SpecialCharGenerator::class,
 		];
 
-		$each = ceil($length / count($generators));
+		$each = (int)ceil($length / count($generators));
 
 		$instances = [];
 		foreach($generators as $generator){

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace McArdle\Generators;
 
 class LowerCaseGenerator extends Generator implements GeneratorInterface{

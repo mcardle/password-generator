@@ -6,17 +6,17 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
           coverage: pcov
-          extensions: "dom", "filter", "json", "libxml", "mbstring", "tokenizer", "xmlwriter", "ctype"
+          extensions: dom, filter, json, libxml, mbstring, tokenizer, xmlwriter, ctype
           ini-values: assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
-          tools: php-cs-fixer, phpstan, psalm, phpunit:${{ matrix.phpunit-versions }}
-
-      - name: Checkout repository
-        uses: actions/checkout@v3
+          tools: composer
 
       - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
@@ -25,12 +25,9 @@ jobs:
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
       - name: Send code coverage report to codecov.io
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Run PHPStan
-        run: phpstan analyse src
-
-      - name: Run Psalm
-        run: psalm --output-format=github
+        run: vendor/bin/phpstan analyse

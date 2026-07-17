@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace McArdle\Traits;
 
+use McArdle\Generators\GeneratorInterface;
 use McArdle\Generators\LowerCaseGenerator;
 use McArdle\Generators\NumberGenerator;
-use McArdle\Generators\SpecialCharsGenerator;
+use McArdle\Generators\SpecialCharGenerator;
 use McArdle\Generators\UpperCaseGenerator;
 
 /**
@@ -12,6 +15,7 @@ use McArdle\Generators\UpperCaseGenerator;
  */
 trait Fluent{
 
+	/** @param array<int, GeneratorInterface> $generatorInstances */
 	public static function init(array $generatorInstances = []): self{
 		return new static($generatorInstances);
 	}
@@ -32,7 +36,7 @@ trait Fluent{
 	}
 
 	public function special(int $amount = 2): self{
-		$this->generators[] = new SpecialCharsGenerator($amount);
+		$this->generators[] = new SpecialCharGenerator($amount);
 		return $this;
 	}
 }
