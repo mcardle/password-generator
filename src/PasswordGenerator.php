@@ -16,7 +16,7 @@ use McArdle\Generators\{
  * @psalm-consistent-constructor
  */
 class PasswordGenerator{
-	use fluent;
+	use \McArdle\Traits\Fluent;
 
 	protected array $generators = [];
 
@@ -69,6 +69,6 @@ class PasswordGenerator{
 			$instances[] = new $generator($each);
 		}
 
-		return (new static($instances))->generate($length);
+		return new static($instances)->generate($length);
 	}
 }

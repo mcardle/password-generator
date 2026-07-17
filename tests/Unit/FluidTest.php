@@ -1,59 +1,51 @@
 <?php
 
+namespace McArdle\Tests\Unit;
+
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversFunction;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \McArdle\Traits\fluent
- */
+#[CoversClass(\McArdle\Traits\Fluent::class)]
 final class FluidTest extends TestCase{
 
-	/**
-	 * @test
-	 */
-	public function it_returns_a_string_with_4_lower_case_chars(): void{
+    #[Test]
+    public function it_returns_a_string_with_4_lower_case_chars(): void{
 		$password = \McArdle\PasswordGenerator::init()->lowercase(4)->generate();
-		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[a-z]{4}/', $password);
+		self::assertSame(4, strlen($password));
+		self::assertMatchesRegularExpression('/[a-z]{4}/', $password);
 	}
 
-	/**
-	 * @test
-	 */
-	public function it_returns_a_string_with_4_upper_case_chars(): void{
+    #[Test]
+    public function it_returns_a_string_with_4_upper_case_chars(): void{
 		$password = \McArdle\PasswordGenerator::init()->uppercase(4)->generate();
-		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[A-Z]{4}/', $password);
+		self::assertSame(4, strlen($password));
+		self::assertMatchesRegularExpression('/[A-Z]{4}/', $password);
 	}
 
-	/**
-	 * @test
-	 */
-	public function it_returns_a_string_with_4_numbers(): void{
+    #[Test]
+    public function it_returns_a_string_with_4_numbers(): void{
 		$password = \McArdle\PasswordGenerator::init()->number(4)->generate();
-		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[0-9]{4}/', $password);
+		self::assertSame(4, strlen($password));
+		self::assertMatchesRegularExpression('/[0-9]{4}/', $password);
 	}
 
-	/**
-	 * @test
-	 * @covers \McArdle\Traits\fluent::special
-	 */
-	public function it_returns_a_string_with_4_special_chars(): void{
+    #[Test]
+    public function it_returns_a_string_with_4_special_chars(): void{
 		$password = \McArdle\PasswordGenerator::init()->special(4)->generate();
-		$this->assertSame(strlen($password), 4);
-		$this->assertMatchesRegularExpression('/[<>{}(),.$@!\/?]{4}/', $password);
+		self::assertSame(4, strlen($password));
+		self::assertMatchesRegularExpression('/[<>{}(),.$@!\/?]{4}/', $password);
 	}
 
-	/**
-	 * @test
-	 */
-	public function it_returns_a_string_with_8_chars_when_using_fluid_pattern(): void{
+    #[Test]
+    public function it_returns_a_string_with_8_chars_when_using_fluid_pattern(): void{
 		$password = \McArdle\PasswordGenerator::init()
 		  	->special()
 			->number()
 			->uppercase()
 			->lowercase()
 		  	->generate();
-		$this->assertSame(strlen($password), 8);
+		self::assertSame(8, strlen($password));
 	}
 }

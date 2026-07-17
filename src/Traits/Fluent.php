@@ -10,7 +10,7 @@ use McArdle\Generators\UpperCaseGenerator;
 /**
  * @phpstan-consistent-constructor
  */
-trait fluent{
+trait Fluent{
 
 	public static function init(array $generatorInstances = []): self{
 		return new static($generatorInstances);
